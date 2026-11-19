@@ -1,0 +1,33 @@
+{
+  "name": "@asin402/n8n-nodes-asin402",
+  "version": "0.1.1",
+  "description": "n8n nodes for ASIN402 (live Amazon prices, price history, deal verdicts, FBA profit, sell scores) and Geo402 (web pages and Google results as seen from 190+ countries). Paid per call in USDC on Base via x402: no account, no API key.",
+  "keywords": ["n8n-community-node-package", "n8n", "amazon", "asin", "fba", "price-history", "web-scraping", "serp", "geo", "x402", "usdc"],
+  "license": "MIT",
+  "homepage": "https://github.com/httpx402/n8n-nodes-asin402#readme",
+  "author": { "name": "ASIN402", "url": "https://asin402.com" },
+  "repository": { "type": "git", "url": "git+https://github.com/httpx402/n8n-nodes-asin402.git" },
+  "main": "index.js",
+  "files": ["dist", "README.md", "LICENSE"],
+  "scripts": {
+    "build": "tsc && node scripts/copy-icons.js",
+    "test": "node test/offline.js"
+  },
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "credentials": ["dist/credentials/X402WalletApi.credentials.js"],
+    "nodes": ["dist/nodes/Asin402/Asin402.node.js", "dist/nodes/Geo402/Geo402.node.js"]
+  },
+  "engines": { "node": ">=20" },
+  "dependencies": {
+    "@x402/evm": "^2.31.0",
+    "@x402/fetch": "^2.31.0",
+    "viem": "^2.57.11"
+  },
+  "peerDependencies": { "n8n-workflow": "*" },
+  "devDependencies": {
+    "n8n-workflow": "^2.16.0",
+    "typescript": "^5.6.0",
+    "@types/node": "^22.0.0"
+  }
+}
